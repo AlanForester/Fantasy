@@ -1,0 +1,2 @@
+class RefutationsController < ApplicationController
+end
