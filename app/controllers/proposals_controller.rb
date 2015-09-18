@@ -1,31 +1,27 @@
 class ProposalsController < ApplicationController
 
   def index
-
+    @proposals = Proposal.all
   end
 
   def create
+    @proposal = Proposal.new(proposal_params)
 
+    @proposal.save
+    redirect_to @proposal
+  end
+
+  def show
+    @proposal = Proposal.find(params[:id])
   end
 
   def new
 
   end
 
-  def edit
-
-  end
-
-  def show
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
+  private
+    def proposal_params
+      params.require(:proposal).permit(:idea)
+    end
 
 end

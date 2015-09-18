@@ -5,16 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   #Resources for users
-  resources :users, path: 'users', only: 'index'
-  resources :users, path: 'user', except: 'index'
+  resources :users
 
   # Resources for proposal at fantasies
-  resources :proposals, path: 'proposals', only: 'index'
-  resources :proposals, path: 'proposal', except: 'index'
+  resources :proposals
 
   #Resourses for refutations of proposal
-  resources :refutations, path: 'refutations', only: 'index'
-  resources :refutations, path: 'refutation', except: 'index'
+  resources :refutations
 
   #Route for start page
   get 'default/index'

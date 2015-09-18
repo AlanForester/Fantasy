@@ -1,0 +1,10 @@
+<p>
+  <% @proposals.each do |proposal| %>
+      <br>
+      <%= proposal.idea %>
+      <%= link_to 'Show', proposal_path(proposal) %>
+  <% end %>
+</p>
+<p>
+  <%= link_to 'new', new_proposal_path %>
+</p>
