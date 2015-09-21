@@ -1,8 +1,10 @@
 <p>
   <% @proposals.each do |proposal| %>
       <br>
-      <%= proposal.idea %>
-      <%= link_to 'Show', proposal_path(proposal) %>
+      <%= proposal.idea %> Actions:
+      <%= link_to 'Show', proposal_path(proposal) %> -
+      <%= link_to 'Edit', edit_proposal_path(proposal) %> -
+      <%= link_to 'Delete', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 </p>
 <p>
