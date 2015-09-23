@@ -3,6 +3,18 @@
   <%= @proposal.idea %>
 </p>
 <p>
+<h2>Add a refutation:</h2>
+<%= form_for([@proposal, @proposal.refutations.build]) do |f| %>
+    <p>
+      <%= f.label :proof %><br>
+      <%= f.text_area :proof %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+</p>
+<p>
   <%= link_to 'Edit', edit_proposal_path(@proposal) %> |
   <%= link_to 'Back', proposals_path %>
 </p>

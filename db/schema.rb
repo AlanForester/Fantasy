@@ -15,18 +15,23 @@ ActiveRecord::Schema.define(version: 20150918134115) do
 
   create_table "proposals", force: :cascade do |t|
     t.text     "idea",       limit: 65535
-    t.integer  "creator_id", limit: 4
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
 
+  add_index "proposals", ["user_id"], name: "index_proposals_on_user_id", using: :btree
+
   create_table "refutations", force: :cascade do |t|
-    t.text     "proof",      limit: 65535
-    t.integer  "creator_id", limit: 4
-    t.integer  "parent_id",  limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "proof",       limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.integer  "proposal_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
+
+  add_index "refutations", ["proposal_id"], name: "index_refutations_on_proposal_id", using: :btree
+  add_index "refutations", ["user_id"], name: "index_refutations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",   limit: 255
@@ -37,4 +42,7 @@ ActiveRecord::Schema.define(version: 20150918134115) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "proposals", "users"
+  add_foreign_key "refutations", "proposals"
+  add_foreign_key "refutations", "users"
 end
