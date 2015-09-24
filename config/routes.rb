@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :users
 
   # Resources for proposal at fantasies
-  resources :proposals
-
-  #Resourses for refutations of proposal
-  resources :refutations
+  resources :proposals do
+    #Resourses for refutations of proposal
+    resources :refutations
+  end
 
   #Route for start page
   get 'default/index'

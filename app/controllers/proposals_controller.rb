@@ -39,7 +39,7 @@ class ProposalsController < ApplicationController
 
   def destroy
     @proposal = Proposal.find(params[:id])
-    @proposal.delete
+    @proposal.destroy
 
     redirect_to proposals_path
   end
