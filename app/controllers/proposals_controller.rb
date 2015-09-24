@@ -1,5 +1,7 @@
 class ProposalsController < ApplicationController
 
+  http_basic_authenticate_with name: '1', password: '2', except: [:index,:show]
+
   def index
     @proposals = Proposal.all
   end
@@ -7,7 +9,6 @@ class ProposalsController < ApplicationController
   def show
     @proposal = Proposal.find(params[:id])
   end
-
 
   def new
     @proposal = Proposal.new
