@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150918134115) do
     t.string   "username",   limit: 255
     t.string   "email",      limit: 255
     t.string   "password",   limit: 255
+    t.string   "salt",       limit: 255
     t.integer  "rating",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
