@@ -1,0 +1,28 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/alex/Documents/Projects/Fantasy"
+		}
+	],
+	"ternjs":
+	{
+		"exclude":
+		[
+			".meteor/**",
+			"node_modules/**"
+		],
+		"libs":
+		[
+			"browser",
+			"underscore",
+			"jquery"
+		],
+		"plugins":
+		{
+			"meteor":
+			{
+			}
+		}
+	}
+}
